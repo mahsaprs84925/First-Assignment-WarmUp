@@ -21,8 +21,20 @@ public class Exercises {
         if the input is not a fibonacci number with description above, return -1
      */
     public long fibonacciIndex(long n) {
-        // todo
-        return -1;
+        if (n == 0) {
+            return 0;
+        }
+        int a = 0, b = 1, index = 1;
+        while (b < n) {
+            int temp = b; //for save b
+            b = a + b;
+            a = temp;
+            index++;
+        }
+        if (b == n)
+            return index;
+        else
+            return -1;
     }
 
     /*
