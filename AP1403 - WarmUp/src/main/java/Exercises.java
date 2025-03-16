@@ -4,8 +4,14 @@ public class Exercises {
         complete this function to check if the input number is prime or not
      */
     public boolean isPrime(long n) {
-        // todo
-        return false;
+        if(n == 1)
+            return false;
+        for(int i=2 ; i <= Math.sqrt(n) ; i++)
+        {
+            if(n % i == 0)
+             return false;
+        }
+        return true;
     }
 
     /*
@@ -15,8 +21,20 @@ public class Exercises {
         if the input is not a fibonacci number with description above, return -1
      */
     public long fibonacciIndex(long n) {
-        // todo
-        return -1;
+        if (n == 0) {
+            return 0;
+        }
+        int a = 0, b = 1, index = 1;
+        while (b < n) {
+            int temp = b; //for save b
+            b = a + b;
+            a = temp;
+            index++;
+        }
+        if (b == n)
+            return index;
+        else
+            return -1;
     }
 
     /*
@@ -37,9 +55,35 @@ public class Exercises {
 
         the output has to be a two-dimensional array of characters, so don't just print the triangle!
      */
-    public char[][] generateTriangle(int n) {
-        // todo
-        return null;
+    public char[][] generateTriangle(int n)
+    {
+        char[][] triangle = new char[n][];
+        for(int i = 0; i < n; i++)
+        {
+            triangle[i] = new char[i+1];
+        }
+        for(int i = 0; i < n; i++) {
+            for (int j = 0; j < triangle[i].length; j++)
+            {
+                if(i == n-1)
+                {
+                    for(int k = 0; k<n; k++)
+                    {
+                        triangle[i][k] = '*';
+                    }
+                }
+                else
+                {
+                    if(j == 0 || j == triangle[i].length - 1)
+                    {
+                        triangle[i][j] = '*';
+                    }
+                    else
+                        triangle[i][j] = ' ';
+                }
+            }
+        }
+        return triangle;
     }
 
     public static void main(String[] args) {
